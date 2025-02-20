@@ -1,0 +1,26 @@
+# -- HomeWork 17 
+import numpy as np
+import pandas as pd
+
+data = {'First Name': ['Alice', 'Bob', 'Charlie', 'David'], 'Age': [25, 30, 35, 40], 'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']}
+#1
+df = pd.DataFrame(data)
+df.columns = df.columns.str.lower().str.replace(' ', '_')
+print(df)
+#2
+newdf = df.head(3)
+print(newdf)
+#3
+mean_age=df['age'].mean()
+print(mean_age)
+#4
+print("\n'first_name' and 'city' columns:")
+print(df[['first_name', 'city']])
+#5
+
+np.random.seed(0)  # For reproducibility
+df['salary'] = np.random.randint(50000, 100000, size=len(df))
+
+# 6. Display summary statistics of the DataFrame
+print("\nSummary statistics of the DataFrame:")
+print(df.describe())
